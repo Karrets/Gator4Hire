@@ -18,11 +18,19 @@ public class Player : KinematicBody2D
 
         if (Input.IsActionPressed("moveRight"))
         {
+            if (Input.IsActionPressed("sprint"))
+            {
+                _velocity.x += _moveSpeed;
+            }
             _velocity.x += _moveSpeed;
         }
         
         if (Input.IsActionPressed("moveLeft"))
         {
+            if (Input.IsActionPressed("sprint"))
+            {
+                _velocity.x -= _moveSpeed;
+            }
             _velocity.x -= _moveSpeed;
         }
         

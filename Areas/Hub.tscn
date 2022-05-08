@@ -1,3 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Terrain/BasicWall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
+
+[node name="Hub" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 282 )
+
+[node name="BasicWall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 485, 388 )
+scale = Vector2( 11.5125, -2 )

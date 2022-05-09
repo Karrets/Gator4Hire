@@ -11,3 +11,13 @@ position = Vector2( 432, 282 )
 [node name="BasicWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 485, 388 )
 scale = Vector2( 11.5125, -2 )
+
+[node name="BasicWall2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 739, 307 )
+rotation = -0.387134
+scale = Vector2( 11.5125, -2 )
+
+[node name="BasicWall3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 349, 294 )
+rotation = 1.5708
+scale = Vector2( 11.5125, -2 )

@@ -1,14 +1,14 @@
 using Godot;
-using System;
 
 public class Player : KinematicBody2D
 {
 	[Export(PropertyHint.Range, "0,200")]
-	private int _moveSpeed = 100;
+	public int MoveSpeed = 100;
 	[Export(PropertyHint.Range, "0,1000")]
-	private int _jumpSpeed = 550;
-	[Export(PropertyHint.Range, "1000,3000")]
-	private int _gravity = 2000;
+	public int JumpSpeed = 550;
+
+	[Inherit]
+	public int Gravity;
 
 	private Vector2 _velocity = Vector2.Zero;
 
@@ -20,42 +20,41 @@ public class Player : KinematicBody2D
 		{
 			if (Input.IsActionPressed("sprint"))
 			{
-				_velocity.x += _moveSpeed;
+				_velocity.x += MoveSpeed;
 			}
-			_velocity.x += _moveSpeed;
+			_velocity.x += MoveSpeed;
 		}
 		
 		if (Input.IsActionPressed("moveLeft"))
 		{
 			if (Input.IsActionPressed("sprint"))
 			{
-				_velocity.x -= _moveSpeed;
+				_velocity.x -= MoveSpeed;
 			}
-			_velocity.x -= _moveSpeed;
+			_velocity.x -= MoveSpeed;
 		}
 		
 		if (Input.IsActionPressed("jump"))
 		{
 			if (IsOnFloor())
 			{
-				_velocity.y -= _jumpSpeed;
+				_velocity.y -= JumpSpeed;
 			}
 			else {
 				if (IsOnWall()) {
-					_velocity.y -= _jumpSpeed / 2f;
-					_velocity.x += _jumpSpeed * 2f;
+					_velocity.y -= JumpSpeed / 2f;
+					_velocity.x += JumpSpeed * 2f;
 				}
 			}
 
 		}
 
 		if (!IsOnFloor()) { //This is used so we don't apply gravity when we are on slopes.
-			_velocity.y += _gravity * delta;
+			_velocity.y += Gravity * delta;
 		}
 
 		if (IsOnWall()) {
-			Console.WriteLine("WALL RIDAAA");
-			_velocity.y += (_gravity / 2f) * delta;
+			_velocity.y += (Gravity / 2f) * delta;
 		}
 
 		_velocity = MoveAndSlide(_velocity, Vector2.Up);

@@ -15,6 +15,14 @@ config/description="A side scrolling shooter about a hitman + gator for hire."
 run/main_scene="res://Areas/Hub.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Special/Globals.cs"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Internals/plugin.cfg" )
+
 [input]
 
 moveRight={

@@ -4,8 +4,10 @@ using Godot;
 
 public class Scene : Node2D
 {
-    [Export(PropertyHint.Range, "0,3000,10,")]
+    [Export(PropertyHint.Range, "0,4000")]
     public int Gravity = 2000;
+    [Export(PropertyHint.Range, "0,8000")]
+    public int TerminalVelocity = 6000;
 
     public override void _Ready() {
         SetInherits(this);
